@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  activemq:
+    broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
+    in-memory: true
+    packages:
+      trust-all: true
+
+logging:
+  level:
+    root: INFO
+
+youtube-api-credentials:
+  dataApiUrl: 'https://www.googleapis.com/youtube/v3/search?key={secretKey}&type={type}&maxResults={maxResults}&q={searchString}&part={dataPart}'
+  secretKey: 'AIzaSyCEPs5re1mOQtXB7yIqIGYMxeuBDwSDIgg'
+  dataPart: 'snippet'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hawtio,jolokia
+hawtio:
+  authenticationEnabled: false
